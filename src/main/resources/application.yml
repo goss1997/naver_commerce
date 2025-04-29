@@ -1,0 +1,37 @@
+server:
+  port: 8080
+
+naver:
+  api:
+    base-url: ${NAVER_API_BASE_URL}
+    client-id: ${NAVER_API_CLIENT_ID}
+    client-secret: ${NAVER_API_CLIENT_SECRET}
+    account-id: ${NAVER_API_ACCOUNT_ID}
+    public-key: ${NAVER_API_PUBLIC_KEY}
+
+spring:
+  datasource:
+    url: jdbc:mariadb://localhost:3306/naver_commerce
+    username: root
+    password: 1234
+    driver-class-name: org.mariadb.jdbc.Driver
+
+  jpa:
+    properties:
+      hibernate:
+        physical_naming_strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl  # 직접 설정
+        dialect: org.hibernate.dialect.MariaDBDialect
+        format_sql: true
+        connection:
+          characterEncoding: utf8mb4
+          charSet: utf8mb4
+          useUnicode: true
+    show-sql: false
+    open-in-view: false
+    defer-datasource-initialization: false
+    hibernate:
+      ddl-auto: create-drop
+
+  sql:
+    init:
+      mode: never
